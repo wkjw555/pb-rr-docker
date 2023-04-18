@@ -13,7 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y -q \
 	pkg-config \
 	build-essential
 
-RUN git clone -b pgbouncer_1_12_0 https://github.com/pgbouncer/pgbouncer.git /opt/pgbouncer && \
+RUN git clone -b pgbouncer_1_18_0 https://github.com/pgbouncer/pgbouncer.git /opt/pgbouncer && \
 	git clone https://github.com/awslabs/pgbouncer-rr-patch.git /opt/pgbouncer-rr-patch && \
 	cd /opt/pgbouncer-rr-patch && ./install-pgbouncer-rr-patch.sh /opt/pgbouncer && \
 	mkdir /etc/pgbouncer-rr && \
