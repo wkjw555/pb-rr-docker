@@ -9,14 +9,12 @@ RUN \
   # Download
   apk add -U --no-cache autoconf autoconf-doc automake udns udns-dev curl gcc libc-dev libevent libevent-dev libtool make openssl-dev pkgconfig postgresql-client git python3-dev && \
   curl -o  /tmp/pgbouncer-$VERSION.tar.gz -L https://pgbouncer.github.io/downloads/files/$VERSION/pgbouncer-$VERSION.tar.gz && \
-  git clone https://github.com/awslabs/pgbouncer-rr-patch.git /tmp/pgbouncer-rr-patch && \
   cd /tmp && \
   # Unpack, compile
   tar xvfz /tmp/pgbouncer-$VERSION.tar.gz && \
-  cd pgbouncer-rr-patch && \
-  chmod +x ./install-pgbouncer-rr-patch.sh && \
-  ./install-pgbouncer-rr-patch.sh ../pgbouncer-$VERSION && \
-  cd ../pgbouncer-$VERSION && \
+  git clone https://github.com/awslabs/pgbouncer-rr-patch.git && \
+  /tmp/pgbouncer-rr-patch/install-pgbouncer-rr-patch.sh /tmp/pgbouncer-$VERSION && \
+  cd /tmp/pgbouncer-$VERSION && \
   ./configure --prefix=/usr --with-udns && \
   make && \
   # Manual install
