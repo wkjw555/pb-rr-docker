@@ -7,7 +7,7 @@ RUN \
   # security
   apk add -U --no-cache --upgrade busybox && \
   # Download
-  apk add -U --no-cache autoconf autoconf-doc automake udns udns-dev curl gcc libc-dev libevent libevent-dev libtool make openssl-dev pkgconfig postgresql-client python3-dev && \
+  apk add -U --no-cache autoconf autoconf-doc automake udns udns-dev curl gcc libc-dev libevent libevent-dev libtool make openssl-dev pkgconfig postgresql-client git python3-dev && \
   curl -o  /tmp/pgbouncer-$VERSION.tar.gz -L https://pgbouncer.github.io/downloads/files/$VERSION/pgbouncer-$VERSION.tar.gz && \
   git clone https://github.com/awslabs/pgbouncer-rr-patch.git /tmp/pgbouncer-rr-patch && \
   cd /tmp && \
