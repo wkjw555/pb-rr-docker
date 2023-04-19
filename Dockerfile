@@ -14,6 +14,7 @@ RUN \
   # Unpack, compile
   tar xvfz /tmp/pgbouncer-$VERSION.tar.gz && \
   cd pgbouncer-rr-patch && \
+  chmod +x ./install-pgbouncer-rr-patch.sh && \
   ./install-pgbouncer-rr-patch.sh ../pgbouncer-$VERSION && \
   cd ../pgbouncer-$VERSION && \
   ./configure --prefix=/usr --with-udns && \
